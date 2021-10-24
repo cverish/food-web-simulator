@@ -1,0 +1,90 @@
+[
+  { "name": "the sun", "prey": [], "value": "theSun", "type": "sun" },
+  { "name": "plants", "prey": ["theSun"], "value": "plants", "type": "plant" },
+  {
+    "name": "rabbits",
+    "prey": ["plants"],
+    "value": "rabbits",
+    "type": "animal"
+  },
+  {
+    "name": "squirrels",
+    "prey": ["plants"],
+    "value": "rabbits",
+    "type": "animal"
+  },
+  { "name": "mice", "prey": ["plants"], "value": "mice", "type": "animal" },
+  {
+    "name": "seed-eating birds",
+    "prey": ["plants"],
+    "value": "seedEatingBirds",
+    "type": "animal"
+  },
+  {
+    "name": "herbivorous insects",
+    "prey": ["plants"],
+    "value": "herbivorousInsects",
+    "type": "animal"
+  },
+  {
+    "name": "spiders",
+    "prey": ["predaceousInsects", "herbivorousInsects"],
+    "value": "spiders",
+    "type": "animal"
+  },
+  {
+    "name": "predaceous insects",
+    "prey": ["spiders", "herbivorousInsects"],
+    "value": "predaceousInsects",
+    "type": "animal"
+  },
+  {
+    "name": "insectivorous birds",
+    "prey": ["spiders", "herbivorousInsects", "predaceousInsects"],
+    "value": "insectivorousBirds",
+    "type": "animal"
+  },
+  {
+    "name": "toads",
+    "prey": ["predaceousInsects"],
+    "value": "toads",
+    "type": "animal"
+  },
+  {
+    "name": "snakes",
+    "prey": [
+      "seedEatingBirds",
+      "insectivorousBirds",
+      "toads",
+      "predaceousInsects",
+      "herbivorousInsects",
+      "mice"
+    ],
+    "value": "snakes",
+    "type": "animal"
+  },
+  {
+    "name": "hawks and owls",
+    "prey": [
+      "insectivorousBirds",
+      "mice",
+      "rabbits",
+      "seedEatingBirds",
+      "squirrels"
+    ],
+    "value": "hawksAndOwls",
+    "type": "animal"
+  },
+  {
+    "name": "foxes",
+    "prey": [
+      "rabbits",
+      "mice",
+      "insectivorousBirds",
+      "squirrels",
+      "seedEatingBirds"
+    ],
+    "value": "foxes",
+    "type": "animal"
+  }
+]
