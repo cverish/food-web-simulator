@@ -3,6 +3,13 @@ import sampleData from "./json/sampleData.json";
 
 const DatasetContext = createContext();
 
+const sampleDataObj = {
+  name: "Sample Dataset",
+  data: sampleData,
+  active: true,
+  key: 0,
+};
+
 const parseJson = (jsonString) => {
   return JSON.parse(
     jsonString
@@ -70,19 +77,13 @@ export const DatasetProvider = ({ children }) => {
 
   const deleteAllDatasets = () => {
     setLoading(true);
-    const updatedDataset = datasets.find((item) => item.key === 0);
-    setDatasets([{ ...updatedDataset, active: true }]);
+    localStorage.removeItem("foodWebDatasets");
+    setDatasets([sampleDataObj]);
   };
 
   useEffect(() => {
     // populate localstorage with sample data if no data exists
     if (!datasets && loading) {
-      const sampleDataObj = {
-        name: "Sample Dataset",
-        data: sampleData,
-        active: true,
-        key: 0,
-      };
       setDatasets([sampleDataObj]);
       setDataset(sampleDataObj);
     } else {

@@ -2,11 +2,13 @@
 
 A React app developed to simulate the relationships between organisms in an environment for educational purposes.
 
+View the app [here!](https://food-web-simulator.herokuapp.com/)
+
 A sample dataset is included. Datasets can be managed via the Manage Datasets console. New data can be uploaded as a `.json` or `.txt` file, or manually via a text editor. Data can also be edited after creation or deleted. For a sample dataset, navigate to the `Edit Dataset` tab, or view the JSON schema for this data in the `View Schema` tab.
 
 All data is stored locally in the browser. All uploaded data can be deleted via the Data Manager page.
 
-Credit to Stacey Eady Reed for the text content, and the Wildlife Medical Clinic at the College of Veterinary Medicine, University of Illinois at Urbana-Champaign for the [sample dataset](https://vetmed.illinois.edu/wildlifeencounters/grade5_8/lesson2/adapt_info/predator.html).
+Credit to Stacey Eady Reed for the text content and the sample dataset.
 
 ## Running this application locally
 
@@ -18,6 +20,7 @@ To run this application locally on your machine:
 
 ## TODO
 
+- [ ] Optimize layout for mobile.
 - [ ] Create a UI dataset editor to make it easier to create new datasets.
 - [ ] Add the ability to download a dataset as a JSON file for easy sharing with students.
 - [ ] Make the app prettier.

@@ -7,8 +7,15 @@ const Dropdown = ({
   selected,
   onSelect,
   width = 300,
+  sort,
   ...props
 }) => {
+  const sortedOptions = sort
+    ? options.sort((a, b) =>
+        a.label.toLowerCase() < b.label.toLowerCase() ? -1 : 1
+      )
+    : options;
+
   return (
     <FormControl>
       <InputLabel>{label}</InputLabel>
@@ -19,7 +26,7 @@ const Dropdown = ({
         onChange={onSelect}
         {...props}
       >
-        {options.map((item, i) => (
+        {sortedOptions.map((item, i) => (
           <MenuItem value={item.value} key={i}>
             {item.label}
           </MenuItem>

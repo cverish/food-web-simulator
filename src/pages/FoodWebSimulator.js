@@ -112,6 +112,7 @@ const FoodWebSimulator = () => {
         <Box>
           <Dropdown
             options={simulatorDropdownOptions}
+            sort
             selected={currentPredator}
             onSelect={(e) => setCurrentPredator(e.target.value)}
             size="small"
@@ -128,6 +129,7 @@ const FoodWebSimulator = () => {
         <Box>
           <Dropdown
             options={simulatorDropdownOptions}
+            sort
             selected={currentPrey}
             onSelect={(e) => setCurrentPrey(e.target.value)}
             size="small"

@@ -12,9 +12,11 @@ const styles = {
 const DatasetDropdown = () => {
   const { datasets, setActiveDataset } = useDataset();
 
-  const datasetDropdownOptions = datasets
-    .map((item) => ({ label: item.name, value: { ...item } }))
-    .sort((a, b) => (a.label < b.label ? -1 : 1));
+  const datasetDropdownOptions = datasets.map((item) => ({
+    label: item.name,
+    value: { ...item },
+  }));
+
   const activeDataset = datasetDropdownOptions.find(
     (item) => item.value.active
   );
@@ -23,6 +25,7 @@ const DatasetDropdown = () => {
     <Dropdown
       label="choose dataset"
       options={datasetDropdownOptions}
+      sort
       selected={activeDataset ? activeDataset.value : ""}
       onSelect={(e) => {
         setActiveDataset(e.target.value);
