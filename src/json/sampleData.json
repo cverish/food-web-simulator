@@ -9,7 +9,7 @@
   },
   {
     "name": "land plants",
-    "prey": ["the sun"],
+    "prey": ["theSun"],
     "value": "landPlants",
     "type": "plant"
   },
@@ -39,7 +39,7 @@
   },
   {
     "name": "large mouth bass",
-    "prey": ["blueGill", "minnow"],
+    "prey": ["blueGill", "minnows"],
     "value": "largeMouthBass",
     "type": "animal"
   },
@@ -52,7 +52,7 @@
   {
     "name": "herons",
     "prey": ["blueGill", "largeMouthBass"],
-    "value": "humans",
+    "value": "herons",
     "type": "animal"
   },
   {
@@ -63,7 +63,7 @@
   },
   {
     "name": "hawks",
-    "prey": ["squirrels", "heron", "foxes"],
+    "prey": ["squirrels", "herons", "foxes"],
     "value": "hawks",
     "type": "animal"
   },

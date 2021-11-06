@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography as T } from "@mui/material";
 import { Divider, Dropdown, DatasetDropdown } from "../components";
 import { ANIMAL, SUN, PLANT } from "../constants/organismTypes";
@@ -60,6 +60,11 @@ const FoodWebSimulator = () => {
     value: item,
     label: item.name,
   }));
+
+  useEffect(() => {
+    setCurrentPredator("");
+    setCurrentPrey("");
+  }, [dataset]);
 
   return (
     <Box>

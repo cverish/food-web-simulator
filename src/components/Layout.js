@@ -1,14 +1,20 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import {
   CssBaseline,
   Container,
   Box,
   Typography as T,
   Link,
+  Button,
   IconButton,
   Tooltip,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from "@mui/material";
 import { DriveFileRenameOutline, Search } from "@mui/icons-material";
+import { isMobile } from "react-device-detect";
 import { useDataset } from "../DatasetContext";
 
 const styles = {
@@ -32,7 +38,7 @@ const styles = {
 const Header = () => {
   return (
     <Container component="header" maxWidth="xl" sx={styles.header}>
-      <Container maxWidth="lg">
+      <Container maxWidth="md">
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box sx={{ flexGrow: 1 }}>
             <Link
@@ -130,8 +136,35 @@ const Footer = () => {
   );
 };
 
+const MobileDialog = ({ isOpen, setIsOpen }) => {
+  return (
+    <Dialog
+      open={isOpen}
+      onClose={() => setIsOpen(false)}
+      sx={{ width: "75%" }}
+    >
+      <DialogTitle>This website is not optimized for mobile.</DialogTitle>
+      <DialogContent>
+        It is recommended you change your view to "Desktop Site" in your mobile
+        browser's settings.
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={() => setIsOpen(false)}>Close</Button>
+      </DialogActions>
+    </Dialog>
+  );
+};
+
 const Layout = ({ children }) => {
   const { loading } = useDataset();
+  const [mobileDialogOpen, setMobileDialogOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMobile) {
+      setMobileDialogOpen(true);
+    }
+  }, []);
+
   return (
     <Box
       sx={{
@@ -145,8 +178,8 @@ const Layout = ({ children }) => {
       <Container component="main" maxWidth="md" sx={styles.main}>
         {loading ? <div /> : children}
       </Container>
-
       <Footer />
+      <MobileDialog isOpen={mobileDialogOpen} setIsOpen={setMobileDialogOpen} />
     </Box>
   );
 };
