@@ -78,14 +78,14 @@ export const DatasetProvider = ({ children }) => {
   const deleteAllDatasets = () => {
     setLoading(true);
     localStorage.removeItem("foodWebDatasets");
-    setDatasets([sampleDataObj]);
+    setDatasets([{ ...sampleDataObj }]);
   };
 
   useEffect(() => {
     // populate localstorage with sample data if no data exists
     if (!datasets && loading) {
-      setDatasets([sampleDataObj]);
-      setDataset(sampleDataObj);
+      setDatasets([{ ...sampleDataObj }]);
+      setDataset(...sampleDataObj);
     } else {
       setDataset(datasets.find((item) => item.active));
     }

@@ -3,6 +3,7 @@ export { default as ClearData } from "./ClearData";
 export { default as DatasetDisplay } from "./DatasetDisplay";
 export { default as DatasetDropdown } from "./DatasetDropdown";
 export { default as Divider } from "./Divider";
+export { default as DownloadButton } from "./DownloadButton";
 export { default as Dropdown } from "./Dropdown";
 export { default as EditDataset } from "./EditDataset";
 export { default as JsonTextInput } from "./JsonTextInput";

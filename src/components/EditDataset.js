@@ -9,7 +9,12 @@ import {
   DialogActions,
 } from "@mui/material";
 import { Delete } from "@mui/icons-material";
-import { DatasetDisplay, DatasetDropdown, SnackbarAlert } from "./";
+import {
+  DatasetDisplay,
+  DatasetDropdown,
+  SnackbarAlert,
+  DownloadButton,
+} from "./";
 import { useDataset } from "../DatasetContext";
 
 const DeleteDialog = ({
@@ -49,6 +54,7 @@ const DeleteDialog = ({
 
 const EditDataset = () => {
   const { dataset, editDataset, deleteDataset } = useDataset();
+  const originalDataset = JSON.stringify(dataset.data, null, 2);
 
   const [jsonTextArea, setJsonTextArea] = useState(
     JSON.stringify(dataset.data, null, 2)
@@ -79,8 +85,9 @@ const EditDataset = () => {
               color="error"
               startIcon={<Delete />}
               onClick={() => setDialogOpen(true)}
+              sx={{ marginRight: 1 }}
             >
-              Delete Dataset
+              Delete
             </Button>
             <DeleteDialog
               dataset={dataset}
@@ -91,6 +98,9 @@ const EditDataset = () => {
             />
           </Box>
         )}
+        <Box>
+          <DownloadButton />
+        </Box>
       </>
     );
   };
@@ -104,7 +114,9 @@ const EditDataset = () => {
               errors.length === 0 &&
               jsonTextArea.length &&
               datasetName.trim().length
-            ) || dataset.key === 0
+            ) ||
+            jsonTextArea === originalDataset ||
+            dataset.key === 0
           }
           onClick={() => handleEdit()}
           variant="contained"

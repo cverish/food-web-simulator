@@ -22,5 +22,6 @@ To run this application locally on your machine:
 
 - [ ] Optimize layout for mobile.
 - [ ] Create a UI dataset editor to make it easier to create new datasets.
-- [ ] Add the ability to download a dataset as a JSON file for easy sharing with students.
+- [x] Add the ability to download a dataset as a JSON file for easy sharing with students.
+- [ ] Make the JSON errors more descriptive.
 - [ ] Make the app prettier.
