@@ -85,7 +85,7 @@ export const DatasetProvider = ({ children }) => {
     // populate localstorage with sample data if no data exists
     if (!datasets && loading) {
       setDatasets([{ ...sampleDataObj }]);
-      setDataset(...sampleDataObj);
+      setDataset({ ...sampleDataObj });
     } else {
       setDataset(datasets.find((item) => item.active));
     }
