@@ -79,7 +79,7 @@ const FoodWebSimulator = () => {
       <Divider />
       <Box sx={styles.description}>
         <T sx={styles.desc}>
-          <span style={styles.ital}>Whoosh! </span> In a blur of feathers a
+          <span style={styles.ital}>Whoosh! </span> In a blur of feathers, a
           red-tailed hawk swoops up a mouse with its talons.
         </T>
         <T sx={styles.desc}>
