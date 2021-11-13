@@ -1,6 +1,18 @@
 [
-  { "name": "the sun", "prey": [], "value": "theSun", "type": "sun" },
-  { "name": "dead matter", "prey": [], "value": "deadMatter", "type": "sun" },
+  {
+    "name": "the sun",
+    "prey": [],
+    "value": "theSun",
+    "type": "energySource",
+    "singular": true
+  },
+  {
+    "name": "dead matter",
+    "prey": [],
+    "value": "deadMatter",
+    "type": "energySource",
+    "singular": true
+  },
   {
     "name": "aquatic invertebrates",
     "prey": ["bacteria"],
@@ -17,7 +29,8 @@
     "name": "blue green algae",
     "prey": ["theSun"],
     "value": "blueGreenAlgae",
-    "type": "plant"
+    "type": "plant",
+    "singular": true
   },
   {
     "name": "bacteria",

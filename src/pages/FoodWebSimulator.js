@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography as T } from "@mui/material";
 import { Divider, Dropdown, DatasetDropdown } from "../components";
-import { ANIMAL, SUN, PLANT } from "../constants/organismTypes";
 import { useDataset } from "../DatasetContext";
 
 const styles = {
@@ -20,6 +19,9 @@ const styles = {
   bold: {
     fontWeight: 500,
   },
+  feedback: { textAlign: "center", mt: 4 },
+  correct: { color: (theme) => theme.palette.success.main },
+  incorrect: { color: (theme) => theme.palette.error.main },
 };
 
 const isPredator = (predator, prey) => {
@@ -33,20 +35,24 @@ const PredatorFeedback = ({ currentPredator, currentPrey }) => {
   const correct = isPredator(currentPredator, currentPrey);
 
   const feedbackMessage = {
-    [SUN]: `${predatorName} ${
-      correct ? "gets" : "does not get"
-    } energy from ${preyName}.`,
-    [PLANT]: `${predatorName} ${
-      correct ? "get" : "do not get"
-    } energy from ${preyName}.`,
-    [ANIMAL]: `${predatorName} ${
-      correct ? "are" : "are not"
-    } a predator of ${preyName}.`,
+    singular: `${preyName} ${
+      correct ? "gives" : "does not give"
+    } energy to ${predatorName}.`,
+    plural: `${preyName} ${
+      correct ? "give" : "do not give"
+    } energy to ${predatorName}.`,
   };
 
   return (
-    <T variant="h4" sx={{ textAlign: "center", mt: 4 }}>
-      {feedbackMessage[currentPredator.type]}
+    <T
+      variant="h4"
+      sx={{
+        textAlign: "center",
+        mt: 4,
+        ...(correct ? styles.correct : styles.incorrect),
+      }}
+    >
+      {feedbackMessage[currentPrey.singular ? "singular" : "plural"]}
     </T>
   );
 };
@@ -126,9 +132,7 @@ const FoodWebSimulator = () => {
         </Box>
         <Box sx={{ mx: 2 }}>
           <T variant="h5" align="center">
-            {currentPredator !== "" && currentPredator.type === ANIMAL
-              ? "are a predator of"
-              : `${currentPredator.type === SUN ? "gets" : "get"} energy from `}
+            {`${currentPredator.singular ? "gets" : "get"} energy from `}
           </T>
         </Box>
         <Box>

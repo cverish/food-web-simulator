@@ -98,7 +98,6 @@ export const DatasetProvider = ({ children }) => {
         JSON.stringify(datasets.find((item) => item.key === 0).data) !==
         JSON.stringify(sampleData)
       ) {
-        console.log("HERE!");
         setDatasets([
           ...datasets.filter((item) => item.key !== 0),
           { ...sampleDataObj },

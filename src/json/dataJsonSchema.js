@@ -1,4 +1,4 @@
-import { SUN, ANIMAL, PLANT } from "../constants/organismTypes";
+import { ENERGY_SOURCE, ANIMAL, PLANT } from "../constants/organismTypes";
 
 export const dataJsonSchema = {
   $schema: "http://json-schema.org/draft-07/schema",
@@ -87,9 +87,10 @@ export const dataJsonSchema = {
             $id: "#/organisms/object/properties/type",
             type: "string",
             title: "The type schema",
-            description: "The type of organism. Animal, plant, or sun.",
+            description:
+              "The type of organism. Animal, plant, or energy source.",
             default: "",
-            enum: [ANIMAL, PLANT, SUN],
+            enum: [ANIMAL, PLANT, ENERGY_SOURCE],
             examples: [ANIMAL],
           },
         },

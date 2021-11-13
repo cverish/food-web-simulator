@@ -1,3 +1,3 @@
 export const ANIMAL = "animal";
-export const SUN = "sun";
+export const ENERGY_SOURCE = "energySource";
 export const PLANT = "plant";
