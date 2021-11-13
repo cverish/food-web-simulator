@@ -10,6 +10,7 @@ const sampleDataObj = {
   key: 0,
 };
 
+// removes extraneous whitespace from a json string and parses into object
 const parseJson = (jsonString) => {
   return JSON.parse(
     jsonString
@@ -24,6 +25,7 @@ const getAllDatasets = () => {
   return JSON.parse(localStorage.getItem("foodWebDatasets"));
 };
 
+//
 export const useDataset = () => {
   const context = useContext(DatasetContext);
   if (!context) {
@@ -46,19 +48,21 @@ export const DatasetProvider = ({ children }) => {
 
     const nextKey = Math.max(datasets.map((item) => item.key)) + 1;
 
-    const newDataObj = { ...dataObj, active: true, key: nextKey };
     datasets.map((item) => (item.active = false));
-    setDatasets([...datasets, newDataObj]);
+    setDatasets([...datasets, { ...dataObj, active: true, key: nextKey }]);
   };
 
+  // sets the active dataset
   const setActiveDataset = (dataObj) => {
     const updatedDatasets = datasets.map((item) => ({
       ...item,
-      active: dataObj.name === item.name,
+      active: dataObj.key === item.key,
     }));
     setDatasets(updatedDatasets);
   };
 
+  // takes in a data object - edits that dataset in memory
+  // NOTE: dataObj.data is a string - converted to object in this function
   const editDataset = (dataObj) => {
     const updatedDatasets = datasets.map((item) =>
       item.key !== dataObj.key
@@ -68,6 +72,7 @@ export const DatasetProvider = ({ children }) => {
     setDatasets(updatedDatasets);
   };
 
+  // deletes a dataset
   const deleteDataset = (dataObj) => {
     const updatedDatasets = datasets.filter((item) => dataObj.key !== item.key);
     // setting the sample dataset as the active dataset after deletion
@@ -75,6 +80,7 @@ export const DatasetProvider = ({ children }) => {
     setDatasets(updatedDatasets);
   };
 
+  // clears local storage to clear data
   const deleteAllDatasets = () => {
     setLoading(true);
     localStorage.removeItem("foodWebDatasets");
@@ -87,6 +93,18 @@ export const DatasetProvider = ({ children }) => {
       setDatasets([{ ...sampleDataObj }]);
       setDataset({ ...sampleDataObj });
     } else {
+      // if the sample dataset has changed, overwrite the old version in local storage
+      if (
+        JSON.stringify(datasets.find((item) => item.key === 0).data) !==
+        JSON.stringify(sampleData)
+      ) {
+        console.log("HERE!");
+        setDatasets([
+          ...datasets.filter((item) => item.key !== 0),
+          { ...sampleDataObj },
+        ]);
+      }
+      // set the active dataset
       setDataset(datasets.find((item) => item.active));
     }
     // update local storage

@@ -33,7 +33,7 @@
   },
   {
     "name": "blue gill",
-    "prey": ["minnow"],
+    "prey": ["minnows"],
     "value": "blueGill",
     "type": "animal"
   },
@@ -45,7 +45,7 @@
   },
   {
     "name": "humans",
-    "prey": ["largeMouthBass", "landPlants", "blueGill"],
+    "prey": ["largeMouthBass", "landPlants", "blueGill", "ducks"],
     "value": "humans",
     "type": "animal"
   },

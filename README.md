@@ -20,6 +20,7 @@ To run this application locally on your machine:
 
 ## TODO
 
+- [ ] Add schema versioning to allow for potential future schema changes.
 - [ ] Optimize layout for mobile.
 - [ ] Create a UI dataset editor to make it easier to create new datasets.
 - [x] Add the ability to download a dataset as a JSON file for easy sharing with students.
