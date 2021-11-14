@@ -82,7 +82,7 @@
   },
   {
     "name": "foxes",
-    "prey": ["squirrels"],
+    "prey": ["squirrels", "hawks"],
     "value": "foxes",
     "type": "animal"
   },

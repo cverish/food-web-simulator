@@ -20,14 +20,18 @@ const downloadFile = ({ data, fileName, fileType }) => {
   a.remove();
 };
 
-const UploadButton = () => {
+const DownloadButton = () => {
   const { dataset } = useDataset();
 
   const exportToJson = (e) => {
     e.preventDefault();
+    // remove special characters and spaces from dataset name
+    const scrubbedName = dataset.name
+      .replace(/[^\w\s-]/gi, "")
+      .replace(" ", "-");
     downloadFile({
       data: JSON.stringify(dataset.data),
-      fileName: `Food_Web_Dataset_${dataset.name.replace(" ", "-")}.json`,
+      fileName: `Food_Web_Dataset_${scrubbedName}.json`,
       fileType: "text/json",
     });
   };
@@ -53,4 +57,4 @@ const UploadButton = () => {
   );
 };
 
-export default UploadButton;
+export default DownloadButton;
