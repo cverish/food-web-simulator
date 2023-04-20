@@ -15,7 +15,7 @@
   },
   {
     "name": "aquatic invertebrates",
-    "prey": ["bacteria"],
+    "prey": ["bacteria", "blueGreenAlgae", "greenAlgae"],
     "value": "aquaticInvertebrates",
     "type": "animal"
   },
@@ -33,6 +33,13 @@
     "singular": true
   },
   {
+    "name": "green algae",
+    "prey": ["theSun"],
+    "value": "greenAlgae",
+    "type": "plant",
+    "singular": true
+  },
+  {
     "name": "bacteria",
     "prey": ["deadMatter"],
     "value": "bacteria",
@@ -40,7 +47,7 @@
   },
   {
     "name": "minnows",
-    "prey": ["blueGreenAlgae", "aquaticInvertebrates"],
+    "prey": ["blueGreenAlgae", "greenAlgae", "aquaticInvertebrates"],
     "value": "minnows",
     "type": "animal"
   },
@@ -82,7 +89,7 @@
   },
   {
     "name": "foxes",
-    "prey": ["squirrels"],
+    "prey": ["squirrels", "hawks", "ducks"],
     "value": "foxes",
     "type": "animal"
   },
