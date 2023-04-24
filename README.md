@@ -2,7 +2,7 @@
 
 A React app developed to simulate the relationships between organisms in an environment for educational purposes.
 
-View the app [here!](https://food-web-simulator.netlify.app/)
+View the app [here!](foodweb.veri.sh)
 
 A sample dataset is included. Datasets can be managed via the Manage Datasets console. New data can be uploaded as a `.json` or `.txt` file, or manually via a text editor. Data can also be edited after creation or deleted. For a sample dataset, navigate to the `Edit Dataset` tab, or view the JSON schema for this data in the `View Schema` tab.
 
